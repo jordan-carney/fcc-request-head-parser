@@ -24,6 +24,5 @@ app.get('/:date', function (req, res) {
   res.send(timeStamp);
 })
 
-app.listen(7777, function () {
-  console.log('Server Started: localhost:7777');
+app.listen(8080, function () {
 })
