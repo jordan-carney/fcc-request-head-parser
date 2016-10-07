@@ -1,10 +1,29 @@
 var express = require('express')
+var moment = require('moment')
 var app = express()
 
-app.get('/', function (req, res) {
-  res.send('Get Ready to RUMBLE!');
+app.get('/:date', function (req, res) {
+  var date = req.params.date
+  var timeStamp = {
+    unix: null,
+    natural: null
+  }
+
+  // Check if natrual date format
+  if( moment(date).isValid() ) {
+    timeStamp.unix = moment(date).format('X')
+    timeStamp.natural = moment(date).format('MMMM DD, YYYY')
+  }
+
+  // Check if unix timestamp (seconds)
+  if( moment.unix(date).isValid() ) {
+    timeStamp.unix = moment.unix(date).format('X')
+    timeStamp.natural = moment.unix(date).format('MMMM DD, YYYY')
+  }
+
+  res.send(timeStamp);
 })
 
 app.listen(7777, function () {
-  console.log('Example app listening on port 7777!');
+  console.log('Server Started: localhost:7777');
 })

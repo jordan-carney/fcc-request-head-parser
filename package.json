@@ -2,13 +2,14 @@
   "name": "fcc-api-timestamp",
   "version": "1.0.0",
   "description": "Timestamp API project for Free Code Camp - Backend",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
     "test": "test"
   },
   "author": "Jordan Carney",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "moment": "^2.15.1"
   }
 }
