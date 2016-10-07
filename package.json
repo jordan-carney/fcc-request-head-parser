@@ -4,7 +4,8 @@
   "description": "Timestamp API project for Free Code Camp - Backend",
   "main": "server.js",
   "scripts": {
-    "test": "test"
+    "start": "node server.js",
+    "test": ""
   },
   "author": "Jordan Carney",
   "license": "MIT",

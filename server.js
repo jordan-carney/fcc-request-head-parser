@@ -28,5 +28,4 @@ app.get('/:date', function (req, res) {
   res.send(timeStamp);
 })
 
-app.listen(8080, function () {
-})
+app.listen(process.env.PORT || <default port>)
