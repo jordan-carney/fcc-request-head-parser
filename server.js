@@ -2,6 +2,10 @@ var express = require('express')
 var moment = require('moment')
 var app = express()
 
+app.get('/', function (req, res) {
+  res.send('Welcome!!')
+})
+
 app.get('/:date', function (req, res) {
   var date = req.params.date
   var timeStamp = {
