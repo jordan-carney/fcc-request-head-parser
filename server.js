@@ -4,10 +4,6 @@ var app = express()
 
 app.set('port', (process.env.PORT || 5000));
 
-app.get('/', function (req, res) {
-  res.sendFile('index.html')
-})
-
 app.get('/:date', function (req, res) {
   var date = req.params.date
   var timeStamp = {
@@ -28,6 +24,10 @@ app.get('/:date', function (req, res) {
   }
 
   res.send(timeStamp);
+})
+
+app.get('/', function (req, res) {
+  res.sendFile('index.html', {root: __dirname})
 })
 
 app.listen(app.get('port'), function() {
