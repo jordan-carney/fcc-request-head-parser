@@ -3,7 +3,7 @@ const app = express()
 
 app.set('port', (process.env.PORT || 5000))
 
-app.use('', function (req, res) {
+app.use('/', function (req, res) {
   const reqData = {
     ipaddress: req.ip,
     software: req.headers['user-agent'],
