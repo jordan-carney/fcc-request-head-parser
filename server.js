@@ -1,35 +1,17 @@
-var express = require('express')
-var moment = require('moment')
-var app = express()
+const express = require('express')
+const app = express()
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 5000))
 
-app.get('/:date', function (req, res) {
-  var date = req.params.date
-  var timeStamp = {
-    unix: null,
-    natural: null
+app.use('', function (req, res) {
+  const reqData = {
+    ipaddress: req.ip,
+    software: req.headers['user-agent'],
+    language: req.headers['accept-language'],
   }
-
-  // Check if natrual date format
-  if( moment(date).isValid() ) {
-    timeStamp.unix = moment(date).format('X')
-    timeStamp.natural = moment(date).format('MMMM DD, YYYY')
-  }
-
-  // Check if unix timestamp (seconds)
-  if( moment.unix(date).isValid() ) {
-    timeStamp.unix = moment.unix(date).format('X')
-    timeStamp.natural = moment.unix(date).format('MMMM DD, YYYY')
-  }
-
-  res.send(timeStamp);
-})
-
-app.get('/', function (req, res) {
-  res.sendFile('index.html', {root: __dirname})
+  res.send(reqData)
 })
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
-});
+})

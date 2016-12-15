@@ -1,16 +1,15 @@
 {
-  "name": "fcc-api-timestamp",
+  "name": "fcc-request-head-parser",
   "version": "1.0.0",
-  "description": "Timestamp API project for Free Code Camp - Backend",
+  "description": "Request Header Parser project for Free Code Camp - Backend",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "test": ""
   },
   "author": "Jordan Carney",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.14.0",
-    "moment": "^2.15.1"
+    "express": "^4.14.0"
   }
 }
